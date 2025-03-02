@@ -6,8 +6,8 @@ namespace DAL
 {
     public class OnlineStoreDbContext : IdentityDbContext<AppUser, IdentityRole, string>
     {
-
-        public OnlineStoreDbContext(DbContextOptions options) : base(options)
+       
+        public OnlineStoreDbContext(DbContextOptions<OnlineStoreDbContext> options) : base(options)
         {
             this.ChangeTracker.LazyLoadingEnabled = false;
         }
@@ -33,7 +33,5 @@ namespace DAL
             builder.ApplyConfigurationsFromAssembly(typeof(OnlineStoreDbContext).Assembly);
             base.OnModelCreating(builder);
         }
-
-
     }
 }
